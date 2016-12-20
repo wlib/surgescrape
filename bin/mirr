@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+# SurgeScrape - Scrape your surge.sh website's files
+# Daniel Ethridge
+
+require "surgescrape"
+include SurgeScrape
+
+usage = "Usage : `sscrape website.surge.sh`"
+version = SurgeScrape::VERSION
+
+help = "\n#{usage}\n
+
+SurgeScrape version : #{version}
+
+A simple utility really, just specify a domain
+and watch all the files download. Run each time
+you need to update your directory, the tool won't 
+download untouched files.
+
+--------------------------------------------------
+
+If you find a bug, want extra features, or have a suggestion,
+make a branch on github : https://github.com/wlib/surgescrape\n\n"
+
+# If there are no arguments, print usage
+if ARGV.length == 0
+  puts usage
+  exit
+end
+
+# Argument "parser"
+case (ARGV[0].downcase)
+  when "help", "--help", "h", "-h", "?"
+    puts help
+    exit
+  when "version", "--version", "v", "-v"
+    puts version
+    exit
+end
