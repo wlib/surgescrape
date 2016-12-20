@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# "Scrape" the website and decide what files need to be downloaded
+# "Scrape" the website and decide what files need to be downloaded, then download them
 # Daniel Ethridge
 
 require 'net/http'
@@ -13,5 +13,8 @@ module SurgeScrape
     request = Net::HTTP::Get.new(uri.request_uri)
     response = http.request(request)
     puts response.body
+  end
+  
+  def get(file, site)
   end
 end
