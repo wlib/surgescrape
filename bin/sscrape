@@ -36,4 +36,7 @@ case (ARGV[0].downcase)
   when "version", "--version", "v", "-v"
     puts version
     exit
+  else
+    scrape(ARGV[0].downcase)
+    exit
 end
