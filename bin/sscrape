@@ -6,13 +6,13 @@ require "surgescrape"
 include SurgeScrape
 
 usage = "Usage : `sscrape website.surge.sh`"
-version = SurgeScrape::VERSION
+version = "SurgeScrape version : 0.1.0" #{SurgeScrape::VERSION}"
 
-help = "\n#{usage}\n
+help = "\n#{usage}
 
-SurgeScrape version : #{version}
+#{version}
 
-A simple utility really, just specify a domain
+A simple utility, just specify a domain
 and watch all the files download. Run each time
 you need to update your directory, the tool won't 
 download untouched files.
@@ -28,8 +28,9 @@ if ARGV.length == 0
   exit
 end
 
-# Argument "parser"
-case (ARGV[0].downcase)
+# Argument "parser", though only takes one argument...
+arg = ARGV[0].downcase
+case (arg)
   when "help", "--help", "h", "-h", "?"
     puts help
     exit
@@ -37,6 +38,15 @@ case (ARGV[0].downcase)
     puts version
     exit
   else
-    scrape(ARGV[0].downcase)
+    if arg.match( /^https:\/\/.+/i )
+      scrape(arg)
+      exit
+    elsif arg.match( /^http:\/\/.+/i )
+      puts "https:// only"
+      exit
+    else
+      scrape("https://#{arg}")
+      exit
+    end
     exit
 end
