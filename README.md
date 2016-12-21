@@ -12,7 +12,7 @@ directory, the tool won't download untouched files.
 
 ## What it lookes like
 
-```
+```bash
 Installing new gem...
 surgescrape (0.1.0) installed.
 daniel@pancake:~/surgescrape$ sscrape 
