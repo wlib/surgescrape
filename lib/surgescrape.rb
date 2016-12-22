@@ -15,7 +15,7 @@ module SurgeScrape
     uri = URI.parse("#{site}/#{file}")
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
-    request = Net::HTTP::Get.new(uri.request_uri, {"Accept-Encoding" => "gzip"})
+    request = Net::HTTP::Get.new(uri.request_uri)#, {"Accept-Encoding" => "gzip"})
     response = http.request(request)
     return response.body
   end

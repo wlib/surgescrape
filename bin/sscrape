@@ -6,7 +6,7 @@ require "surgescrape"
 include SurgeScrape
 
 usage = "Usage : `sscrape website.surge.sh`"
-version = "SurgeScrape version : 0.1.0" #{SurgeScrape::VERSION}"
+version = "SurgeScrape version : 0.1.1" #{SurgeScrape::VERSION}"
 
 help = "\n#{usage}
 
